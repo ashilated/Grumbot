@@ -27,6 +27,8 @@ class Worker(QObject):
 
 
         while True:
+
+
             response = bot.handle_conversation()
 
             if response == 100:
