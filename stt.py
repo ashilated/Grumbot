@@ -4,10 +4,11 @@ recognizer = sr.Recognizer()
 
 def listen():
     with sr.Microphone() as source:
+        recognizer.adjust_for_ambient_noise(source)
         print("Listening for input")
         audio = recognizer.listen(source)
         try:
-            query = recognizer.recognize_vosk(audio)
+            query = recognizer.recognize_sphinx(audio)
             print(query)
             return query.lower()
         except sr.UnknownValueError:
@@ -23,6 +24,6 @@ def main():
         query = listen()
         if query:
             if "grumbot" in query:
-                print("your question is" + query.split("grumbot "[1]))
+                print('hello world')
 
 main()

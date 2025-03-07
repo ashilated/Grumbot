@@ -14,7 +14,6 @@ class Worker(QObject):
     update_anim = Signal(str)
     play_bad_apple = Signal()
 
-
     def __init__(self):
         super().__init__()
 
@@ -22,13 +21,11 @@ class Worker(QObject):
         tts_thread = QThread()
         tts = TTS()
         tts.moveToThread(tts_thread)
-        tts_thread.started.connect(tts.start_loop())
+        tts_thread.started.connect(tts.start_loop)
         tts_thread.start()
 
 
         while True:
-
-
             response = bot.handle_conversation()
 
             if response == 100:

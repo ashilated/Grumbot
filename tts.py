@@ -7,7 +7,7 @@ class TTS(QObject):
         super().__init__()
         self.engine = pyttsx3.init()
         voices = self.engine.getProperty('voices')
-        self.engine.setProperty('voice', voices[17].id)
+        self.engine.setProperty('voice', voices[25].id)
 
     def start_loop(self):
         self.engine.startLoop()
